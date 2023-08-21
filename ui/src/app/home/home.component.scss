@@ -1,0 +1,81 @@
+@import "../scss/abstract/mixins";
+
+.home {
+    width: 100vw;
+    background-color: black;
+    min-height: 91vh;
+    height: fit-content;
+    padding-bottom: 1rem;
+    position: relative;
+    top: 9vh;
+    
+    &__poster {
+        width: 95%;
+        margin: auto;
+        height: 70vh;
+        background-size: 100%;
+        position: relative;
+       
+        transition: all 0.2s;
+        @include respond(phone){
+            height:70vw;
+            min-height:35vh;
+        }
+        &:hover {
+            transform: scale(1.02);
+            filter: brightness(110%);
+        }
+        &:hover &__details {
+            transform: translateY(-1rem);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        &__details {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.385);
+            color: white;
+            padding: 1rem;
+            width: 40%;
+            text-align: center;
+            transition: all 0.2s;
+            @include respond(phone){
+                width:70%
+            }
+            & *{
+                @include respond(phone){
+                    font-size:0.4rem;
+                }
+            }
+            & >h1{
+                @include respond(phone){
+                    font-size:0.6rem
+                }
+            }
+            &__type {
+                color: lightgoldenrodyellow;
+                font-size: 0.9rem;
+              
+            }
+
+            &__plot {
+                color: lightgrey;
+                font-size: 0.8rem;
+            }
+        }
+    }
+    &__list {
+        margin-top: 2rem;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

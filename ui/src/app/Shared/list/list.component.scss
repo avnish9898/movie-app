@@ -1,0 +1,147 @@
+
+@import "../../scss/abstract/mixins";
+
+* {
+    box-sizing: border-box;
+}
+.list {
+    margin-bottom: 2rem;
+
+    &__catagory {
+        margin-bottom: 1rem;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 500;
+        border-left: 5px solid yellow;
+        padding: 0 0.5rem;
+        border-radius: 2px;
+        transition: all 0.5s ease-in-out;
+        &:hover i {
+            color: yellow;
+        }
+    }
+    &__items {
+        display: flex;
+        // overflow-x: hidden;
+        position: relative;
+        &--prevous,
+        &--next {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.432);
+            color: white;
+            font-size: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 60;
+            padding: 0.5rem;
+            @include respond(phone){
+                font-size:1rem;
+            }
+        }
+        &--prevous {
+            left: 1rem;
+            @include respond(phone){
+                left:0.5rem;
+            }
+        }
+        &--next {
+            right: 1rem;
+            @include respond(phone){
+                right:0.5rem;
+            }
+        }
+        &_item {
+            margin-right: 0.5rem;
+            width: 20%;
+            position: relative;
+            background-color: #1a1a1a;
+            height: 15rem;
+            background-size: cover;
+            border-radius: 1rem;
+            animation: fadeIn 0.6s ease-in;
+            transition: all 0.3s;
+            @include respond(phone){
+                height:7rem;
+            }
+            &:hover {
+                transform: scale(1.04);
+            }
+            &--watchlist {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0.2rem 0.5rem;
+                border-top-right-radius: 1rem;
+                font-size: 1.5rem;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.7);
+                @include respond(phone){
+                    font-size:0.8rem;
+                }
+            }
+            &-details {
+                padding: 0.3rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.37);
+                width: 100%;
+                font-size: 0.9rem !important;
+                height: 30%;
+                @include respond(phone){
+                    height:fit-content;
+                }
+                & > *{
+                    @include respond(phone){
+                        font-size:0.5rem;
+                    }
+                }
+                &--title {
+                    color: white;
+                    font-size: 0.9rem;
+                }
+                &--rating {
+                    color: white;
+                    margin-bottom: 0.2rem;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+.leftSlide {
+    animation-name: fadeInLeftAnimation;
+    animation-duration: 0.4s;
+}
+.rightSlide {
+    animation-name: fadeInRightAnimation;
+    animation-duration: 0.4s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeInLeftAnimation {
+    0% {
+        left: -1rem;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+@keyframes fadeInRightAnimation {
+    0% {
+        right: -1rem;
+        opacity: 0;
+    }
+    100% {
+        right: 0;
+        opacity: 1;
+    }
+}

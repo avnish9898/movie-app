@@ -1,0 +1,108 @@
+<div class="item">
+  <div class="item__container">
+    <div class="item__container__poster">
+      <img
+        [src]="item['Poster']"
+        alt=""
+        class="item__container__poster-image"
+      />
+      <div class="item__container__poster-header">
+        <h2>{{ item["Title"] }}</h2>
+        <div>
+          {{ item["Type"] | titlecase }} . {{ item["Year"] }} .
+          {{ item["Runtime"] }}
+        </div>
+        <div>{{ item["Rated"] }}</div>
+        <div>{{ item["Language"] }}</div>
+      </div>
+    </div>
+    <div class="item__container__content">
+      <div class="item__container__content--details">
+        <div class="item__container__content--details-genre">
+          <span>Genre</span>: {{ item["Genre"] }}
+        </div>
+        <div class="item__container__content--details-plot">
+          <span>Plot: </span> {{ item["Plot"] }}
+        </div>
+        <div class="item__container__content--details-director">
+          <span>Director: </span> {{ item["Director"] }}
+        </div>
+        <div class="item__container__content--details-actor">
+          <span>Actors :</span> {{ item["Actors"] }}
+        </div>
+        <div class="item__container__content--details-awards">
+          <span>Awards : </span>{{ item["Awards"] }}
+        </div>
+      </div>
+      <div class="item__container__content--right">
+        <div class="item__container__content--right-country">
+          <span class="bold">Country : </span> {{ item["Country"] }}
+        </div>
+
+        <div class="item__container__content--right-date">
+          <span class="bold">Release : </span> {{ item["Released"] }}
+        </div>
+        <div class="item__container__content--right-imdbRating">
+          <div class="item__container__content--right-imdbRating-left">
+            IMDb
+          </div>
+          <div class="item__container__content--right-imdbRating-right">
+            <i class="fa-solid fa-star"></i> {{ item["imdbRating"] }}/10
+          </div>
+        </div>
+        <div class="item__container__content--right-Metascore">
+          <div class="item__container__content--right-Metascore-left">
+            metascore
+          </div>
+          <div class="item__container__content--right-Metascore-right">
+            {{ item["Metascore"] }}
+          </div>
+        </div>
+        <button
+          class="btn btn-dark item__container__content--right-watchlist"
+          (click)="addWatchList(item)"
+        >
+          <i class="fa-solid fa-bookmark"></i> Add to Watchlists
+        </button>
+        <button
+          class="btn btn-outline-primary item__container__content--right-rate"
+          (click)="openRatingModal()"
+        >
+          {{ comment == {} || user == {} ? "Rate" : "Edit" }}
+          <i class="fa-solid fa-star"></i>
+        </button>
+      </div>
+    </div>
+    <div class="item__container__comments">
+      <div
+        class="item__container__comments--heading"
+        [routerLink]="[item['id'] + '/reviews']"
+      >
+        Comments
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      <div
+        class="item__container__comments--content"
+        *ngIf="comments.length > 0"
+      >
+        <div class="item__container__comments--content-rating">
+          <div>Top Review</div>
+          <span
+            ><i class="fa-solid fa-star"></i> {{ comments[0]["rating"] }}</span
+          >
+        </div>
+        <!-- <div class="item__container__comments--content-title">
+          {{ comments[0]["comment"] }}
+        </div> -->
+        <div class="item__container__comments--content-user">
+          <div>{{ comments[0]["name"] }}</div>
+          <span>{{ comments[0]["createdAt"] | date }}</span>
+        </div>
+        <div class="item__container__comments--content-comment">
+          {{ comments[0]["comment"] }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <rating-modal [item]="item" [comment]="comment"></rating-modal>
+</div>

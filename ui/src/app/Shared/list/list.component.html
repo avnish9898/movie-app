@@ -1,0 +1,42 @@
+<div class="list">
+  <div class="list__catagory" [routerLink]="[linkName]">
+    {{ linkName }}
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
+
+  <div class="list__items">
+    <div class="list__items--prevous" (click)="prevousSlide()">
+      <i class="fa-solid fa-chevron-left"></i>
+    </div>
+    <div class="list__items--next" (click)="nextSlide()">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+    <div
+      class="list__items_item"
+      *ngFor="let dataset of mainData"
+      [routerLink]="['/item', dataset['id']]"
+      (click)="$event.stopPropagation()"
+      [ngClass]="animationName == 'left' ? 'leftSlide' : 'rightSlide'"
+      [style.background-image]="'url(' + dataset['Images'][0] + ')'"
+    >
+      <button
+        class="list__items_item--watchlist btn"
+        (click)="$event.stopPropagation(); addWatchList(dataset)"
+      >
+        +
+      </button>
+
+      <div class="list__items_item-details">
+        <div class="list__items_item-details--rating">
+          <i style="color: yellow" class="fa-solid fa-star"></i>
+          {{ dataset["imdbRating"] }}
+        </div>
+        <h6 class="list__items_item-details--title">
+          {{ dataset["Title"] | shortend: 25 }}
+        </h6>
+        <vr></vr>
+      </div>
+    </div>
+  </div>
+</div>

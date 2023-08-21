@@ -1,0 +1,67 @@
+<div class="watchlist">
+  <div class="watchlist__container">
+    <div class="watchlist__container--heading">
+      <h1>Watchlist</h1>
+    </div>
+    <div class="watchlist__container__items">
+      <div
+        class="watchlist__container__items__empty"
+        *ngIf="watchlist.length == 0"
+      >
+        <div class="watchlist__container__items__empty--icon">
+          <i class="fa-solid fa-bookmark"></i>
+        </div>
+        <div class="watchlist__container__items__empty--text">
+          Watch list is empty
+          <div>
+            Add movies and shows to your Watchlist to keep track of what you
+            want to watch.
+          </div>
+          <a [routerLink]="['/catagories/type', 'movie']">Browse Movies</a>
+          <a [routerLink]="['/catagories/type', 'series']">Browse Series</a>
+        </div>
+      </div>
+      <div
+        class="watchlist__container__items--item"
+        *ngFor="let data of watchlist; let i = index"
+        (click)="$event.stopPropagation(); onItemDetail(data['id'])"
+      >
+        <img
+          class="watchlist__container__items--item-image"
+          [src]="data['Images'][0]"
+        />
+        <div class="watchlist__container__items--item-details">
+          <div class="watchlist__container__items--item-details--1">
+            {{ i + 1 }}
+            <h6>{{ data["Title"] }}</h6>
+            <span>{{ data["Year"] }}</span>
+          </div>
+          <div class="watchlist__container__items--item-details--2">
+            <span>{{ data["Runtime"] }} |</span>{{ data["Genre"] }}
+          </div>
+          <div class="watchlist__container__items--item-details--3">
+            <span>
+              <i class="fa-solid fa-star"></i> {{ data["imdbRating"] }}
+              <button class="btn"><i class="fa-solid fa-star"></i></button>
+              Rate this
+            </span>
+          </div>
+          <div class="watchlist__container__items--item-details--4">
+            {{ data["Plot"] }}
+          </div>
+          <div class="watchlist__container__items--item-details--5">
+            stars: <span> {{ data["Actors"] }}</span>
+          </div>
+        </div>
+        <div class="watchlist__container__items--item-delete">
+          <button
+            class="btn btn-danger"
+            (click)="$event.stopPropagation(); onDelete(data['id'])"
+          >
+            X
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

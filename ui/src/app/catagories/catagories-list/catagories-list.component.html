@@ -1,0 +1,63 @@
+<div class="catagoriesList">
+  <div class="catagoriesList__container">
+    <div
+      class="catagoriesList__container__poster"
+      [style.background-image]="'url(' + poster + ')'"
+    >
+      <h2>{{ heading | uppercase }}</h2>
+    </div>
+    <div class="catagoriesList__container__content">
+      <div class="catagoriesList__container__content--heading">
+        {{ heading | titlecase }}
+        <div class="catagoriesList__container__content--heading-details">
+          Movies and Tv Series
+        </div>
+      </div>
+      <div class="catagoriesList__container__content--items">
+        <div
+          class="catagoriesList__container__content--items_item"
+          *ngFor="let trendData of data; let i = index"
+          [routerLink]="['/item', trendData['id']]"
+        >
+          <img
+            class="catagoriesList__container__content--items_item-image"
+            [src]="trendData['Images'][0]"
+          />
+          <div class="catagoriesList__container__content--items_item-details">
+            <div
+              class="catagoriesList__container__content--items_item-details--1"
+            >
+              {{ i + 1 }}
+              <h6>{{ trendData["Title"] }}</h6>
+              <span>{{ trendData["Year"] }}</span>
+            </div>
+            <div
+              class="catagoriesList__container__content--items_item-details--2"
+            >
+              <span>{{ trendData["Runtime"] }} |</span>{{ trendData["Genre"] }}
+            </div>
+            <div
+              class="catagoriesList__container__content--items_item-details--3"
+            >
+              <span>
+                <i class="fa-solid fa-star"></i> {{ trendData["imdbRating"] }}
+                <button class="btn"><i class="fa-solid fa-star"></i></button>
+                Rate this
+              </span>
+            </div>
+            <div
+              class="catagoriesList__container__content--items_item-details--4"
+            >
+              {{ trendData["Plot"] }}
+            </div>
+            <div
+              class="catagoriesList__container__content--items_item-details--5"
+            >
+              stars: <span> {{ trendData["Actors"] }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

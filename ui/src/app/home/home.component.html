@@ -1,0 +1,34 @@
+<div class="home">
+  <div
+    class="home__poster"
+    [routerLink]="['/item', data['poster'][timer]['id']]"
+  >
+    <img [src]="data['poster'][timer]['Poster']" alt="" />
+    <div class="home__poster__details">
+      <h1>{{ data["poster"][timer]["Title"] }}</h1>
+      <div class="home__poster__details__type">
+        {{ data["poster"][timer]["Type"] }}
+        {{ data["poster"][timer]["Year"] }}
+      </div>
+      <!-- <div class="home__poster__details__genre">
+        {{ data["poster"][timer]["Genre"] }}
+      </div> -->
+      <div class="home__poster__details__year"></div>
+      <div class="home__poster__details__plot">
+        {{ data["poster"][timer]["Plot"] }}
+      </div>
+    </div>
+  </div>
+  <div class="home__list">
+    <app-home-list
+      [data]="data['topRated']"
+      [catagory]="'Top Rated'"
+      [linkName]="'top-rated'"
+    ></app-home-list>
+    <app-home-list
+      [data]="data['latest']"
+      [catagory]="'Latest'"
+      [linkName]="'latest'"
+    ></app-home-list>
+  </div>
+</div>

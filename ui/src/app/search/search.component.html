@@ -1,0 +1,22 @@
+<div class="search">
+  <div class="search__container">
+    <div class="search__container__items">
+      <div
+        class="search__container__items-item"
+        *ngFor="let item of searchItem"
+        [style.background-image]="'url(' + item['Images'][0] + ')'"
+        [routerLink]="['/item', item['id']]"
+      >
+        <div class="search__container__items-item-details">
+          <h4 class="search__container__items-item-details--title">
+            {{ item["Title"] }}
+          </h4>
+          <div class="search__container__items-item-details--rating">
+            <i style="color: yellow" class="fa-solid fa-star"></i>
+            {{ item["imdbRating"] }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

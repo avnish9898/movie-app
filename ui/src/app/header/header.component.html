@@ -1,0 +1,69 @@
+<nav class="header">
+  <app-menu></app-menu>
+  <div class="header__menu">
+    <button class="btn header__menu-button" (click)="clickMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <h5>REVIEWAPP</h5>
+  </div>
+  <!-- <div style="display: flex; color: white">
+    <span style="color: white" class="btn" [routerLink]="['/']">Home</span>
+    <span style="color: white" class="btn" [routerLink]="['/movies']"
+      >movies</span
+    >
+    <span style="color: white" class="btn">tv shows</span>
+  </div> -->
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="search movies"
+      aria-label="Recipient's username"
+      aria-describedby="button-addon2"
+      [(ngModel)]="searchItem"
+    />
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      id="button-addon2"
+      (click)="clickSearch()"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="header__button__group">
+    <button
+      class="btn header__button__group--watchlist"
+      [routerLink]="['watchlist']"
+    >
+      <i class="fa-solid fa-bookmark"></i> <span>Watchlist</span>
+    </button>
+
+    <button
+      class="btn header__button__group--user-login"
+      [routerLink]="['/auth/login']"
+      *ngIf="user == null"
+    >
+      login
+    </button>
+    <div class="header__button__group--user">
+      <button class="btn" *ngIf="user" (click)="clickDropdown()">
+        <span
+          ><i class="fa-solid fa-user"></i> {{ user.name.split(" ")[0] }}
+          <i class="fa-solid fa-caret-down"></i
+        ></span>
+      </button>
+      <div
+        class="header__button__group--user-list"
+        [ngClass]="{ 'open-dropdown': dropdown }"
+      >
+        <div>
+          <i class="fa-solid fa-user"></i>
+          <a [routerLink]="['/profile']">Profile</a>
+        </div>
+        <div><a [routerLink]="['/watchlist']">Watchlist</a></div>
+        <button class="btn btn-danger" (click)="signout()">signout</button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,142 @@
+@import "../scss/abstract/mixins";
+
+* {
+    box-sizing: border-box;
+}
+.menuContainer {
+    height: 90vh;
+    width: fit-content;
+    opacity: 0;
+    position: fixed;
+    left: -25vw;
+    top: 9vh;
+    z-index: 0;
+    transition: all 0.3s ease-in-out;
+    padding: 1rem;
+
+    &__heading {
+        width: 70%;
+        padding: 0.3rem 0.5rem;
+        color: white;
+        background: #1e1e1e;
+        border-radius: 1rem;
+        transform: all 0.3s ease-in;
+        margin: auto;
+        @include respond(phone) {
+            display: flex;
+            justify-content: center;
+        }
+        &:hover {
+            filter: brightness(120%);
+        }
+
+        &__icon {
+            font-size: 2.5rem;
+            margin: auto;
+            width: -moz-fit-content;
+            width: fit-content;
+            border-radius: 100%;
+            padding: 0.2rem 1rem;
+            border: 2px solid whitesmoke;
+            background: #111111;
+
+            @include respond(phone) {
+                padding: 0.2rem 0.4rem;
+                font-size: 0.9rem;
+                border: 4px solid;
+                text-align: center;
+            }
+        }
+        &__text {
+            text-align: center;
+            font-size: 1.2rem;
+            @include respond(tab-port) {
+                font-size: 0.9rem;
+            }
+            @include respond(phone) {
+                display: none;
+            }
+        }
+    }
+    &__content {
+        width: 100%;
+        height: 82%;
+        margin-top: 1rem;
+        &-list {
+            margin-bottom: 0.8rem;
+            &--text {
+                color: white;
+                font-size: 1.5rem;
+                width: 100%;
+                transition: all 0.2s ease-in;
+                padding: 0rem 0.6rem;
+                padding-bottom: 0.2rem;
+                border-left: 0.4rem solid lightblue;
+                background-image: linear-gradient(120deg, transparent 0%, transparent 89%, white 90%);
+                & > span {
+                    @include respond(phone) {
+                        display: none;
+                    }
+                }
+                button {
+                    margin-left: 1rem;
+                    color: white;
+                    @include respond(phone) {
+                        display: none;
+                    }
+                }
+            }
+            &:hover &--text {
+                color: black;
+                background: linear-gradient(120deg, transparent 0%, transparent 0%, white 0%);
+                transform: scale(1.03);
+            }
+
+            &:hover &--text > button {
+                color: black;
+            }
+            &--items {
+                width: 0;
+                opacity: 0;
+                height: 0;
+                transition: all 0.2s;
+
+                list-style: none;
+                color: white;
+
+                & > li {
+                    border-bottom: 1px solid silver;
+                    padding: 0.2rem 0.7rem;
+                    &:hover {
+                        transform: scale(1.02);
+                    }
+                }
+            }
+            // &:hover &--items {
+            //     opacity: 1;
+            //     width: 100%;
+            //     height: fit-content;
+            // }
+        }
+    }
+}
+.open-menu {
+    // width: 25vw;
+    background-color: black;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.322);
+    z-index: 65;
+    opacity: 1;
+    left: 0;
+}
+.show-list {
+    width: 100%;
+    opacity: 1;
+}
+.subMenu {
+    padding: 0.2rem 1.5rem;
+    padding-right: 0;
+    z-index: 65;
+    height: fit-content;
+    width: 100%;
+    opacity: 1;
+}

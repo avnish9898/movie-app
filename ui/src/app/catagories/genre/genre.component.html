@@ -1,0 +1,48 @@
+<div class="genreContainer">
+  <div class="genreContainer__content">
+    <div class="genreContainer__content--poster">
+      <h2>{{ genreName | uppercase }}</h2>
+    </div>
+
+    <div class="genreContainer__content_data">
+      <h4>Action Movies and Tv Series</h4>
+      <div class="genreContainer__content_data-container">
+        <div
+          class="genreContainer__content_data-container-item"
+          *ngFor="let data of genreData; let i = index"
+          [routerLink]="['/item', data['id']]"
+        >
+          <img [src]="data['Images'][0]" alt="" />
+          <div
+            class="btn genreContainer__content_data-container-item--watchlist"
+          >
+            +
+          </div>
+          <div class="genreContainer__content_data-container-item--details">
+            <div class="genreContainer__content_data-container-item--details-1">
+              {{ i + 1 }}.
+              <h6>{{ data["Title"] }}</h6>
+              <span>({{ data["Year"] }}) </span>
+            </div>
+            <div class="genreContainer__content_data-container-item--details-2">
+              <span>{{ data["Runtime"] }} |</span>{{ data["Genre"] }}
+            </div>
+            <div class="genreContainer__content_data-container-item--details-3">
+              <span>
+                <i class="fa-solid fa-star"></i> {{ data["imdbRating"] }}
+                <button class="btn"><i class="fa-solid fa-star"></i></button>
+                Rate this
+              </span>
+            </div>
+            <div class="genreContainer__content_data-container-item--details-4">
+              {{ data["Plot"] }}
+            </div>
+            <div class="genreContainer__content_data-container-item--details-5">
+              stars: <span>{{ data["Actors"] }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

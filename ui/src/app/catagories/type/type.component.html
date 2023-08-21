@@ -1,0 +1,38 @@
+<div class="type">
+  <div
+    class="type__poster"
+    [routerLink]="['/item', homeData['poster'][index]['id']]"
+  >
+    <img
+      class="type__poster--image"
+      [src]="homeData['poster'][index]['Poster']"
+      alt=""
+    />
+    <div class="type__poster--details">
+      <h1>{{ homeData["poster"][index]["Title"] }}</h1>
+      <div class="type__poster--details__type">
+        {{ homeData["poster"][index]["Type"] }}
+        {{ homeData["poster"][index]["Year"] }}
+      </div>
+
+      <div class="type__poster--details__year"></div>
+      <div class="type__poster--details__plot">
+        {{ homeData["poster"][index]["Plot"] }}
+      </div>
+    </div>
+  </div>
+  <div class="type__group">
+    <app-corousel-list
+      [linkName]="'latest'"
+      [url]="'/catagories/type/'"
+    ></app-corousel-list>
+    <app-corousel-list
+      [linkName]="'top-rated'"
+      [url]="'/catagories/type/'"
+    ></app-corousel-list>
+    <app-corousel-list
+      [linkName]="'popular'"
+      [url]="'/catagories/type/'"
+    ></app-corousel-list>
+  </div>
+</div>

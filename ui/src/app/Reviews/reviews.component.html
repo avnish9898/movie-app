@@ -1,0 +1,42 @@
+<div class="reviews">
+  <div class="reviews__container">
+    <div class="reviews__container__title">
+      <img [src]="item['Poster']" />
+      <div class="reviews__container__title--text">
+        <div>
+          <h2>{{ item["Title"] }}</h2>
+          <span>{{ item["Year"] }}</span>
+        </div>
+        <span>{{ item["Genre"] }}</span>
+      </div>
+    </div>
+
+    <div class="reviews__container__content">
+      <h5 class="reviews__container__content--heading">Reviews</h5>
+      <div
+        class="reviews__container__content--review"
+        *ngFor="let comment of comments; let i = index"
+      >
+        <div class="reviews__container__content--review-rating">
+          <span
+            ><i class="fa-solid fa-star"></i> {{ comment["rating"] }}/10</span
+          >
+          <div class="reviews__container__content--review-rating-user">
+            <div>{{ comment["name"] }}</div>
+            <span>{{ comment["createdAt"] | date }}</span>
+          </div>
+        </div>
+        <p class="reviews__container__content--review-comment">
+          {{ comment["comment"] }}
+        </p>
+      </div>
+      <div
+        *ngIf="comments.length == 0"
+        class="reviews__container__content--nocomments"
+      >
+        <img src="https://cdn-icons-png.flaticon.com/512/5058/5058062.png" />
+        <div>NO COMMENTS YET</div>
+      </div>
+    </div>
+  </div>
+</div>

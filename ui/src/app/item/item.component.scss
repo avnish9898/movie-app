@@ -1,0 +1,236 @@
+@import "../scss/abstract/mixins";
+* {
+    box-sizing: border-box;
+}
+.item {
+    width: 100vw;
+    min-height: fit-content;
+    height: 91vh;
+    position: relative;
+    // background-color: #1f1f1f;
+    background-color: white;
+    top: 9vh;
+    &__container {
+        margin: auto;
+        width: 80%;
+        @include respond(phone) {
+            width: 100%;
+        }
+        &__poster {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            @include respond(phone) {
+                height: 40vh;
+            }
+            &-image {
+                width: 100%;
+                height: 100%;
+            }
+            &-header {
+                padding: 2rem;
+                color: white;
+                display: block;
+                position: absolute;
+                bottom: 0rem;
+                background: #0000002e;
+
+                left: 0;
+                @include respond(phone) {
+                    padding: 1rem;
+                }
+
+                & > h2 {
+                    margin-bottom: 0.2rem;
+                    @include respond(phone) {
+                        font-size: 0.9rem;
+                    }
+                }
+                & > div {
+                    display: flex;
+                    font-size: 1rem;
+                    color: darkgray;
+                    @include respond(phone) {
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+        }
+        &__content {
+            width: 100%;
+            display: flex;
+
+            &--details,
+            &--right {
+                min-height: 20vh;
+                padding: 1rem;
+                height: fit-content;
+            }
+            &--details {
+                width: 60%;
+                & span {
+                    color: black;
+                    font-weight: bold;
+                    margin-right: 0.2rem;
+                }
+                & > div {
+                    width: 100%;
+                    display: flex;
+                    padding: 0.5rem 0rem;
+                    border-bottom: 0.1rem solid silver;
+                    font-size: 0.9rem;
+                    @include respond(phone) {
+                        font-size: 0.6rem;
+                    }
+                }
+                &-genre {
+                    color: blue;
+                }
+
+                &-plot {
+                }
+                &-director {
+                    color: blue;
+                }
+                &-actor {
+                }
+            }
+            &--right {
+                width: 40%;
+                & > div {
+                    font-size: 0.9rem;
+                    margin-bottom: 0.5rem;
+                    @include respond(phone) {
+                        font-size: 0.7rem;
+                    }
+                }
+                &-country {
+                }
+                &-imdbRating {
+                    display: flex;
+                    font-size: 1.4rem;
+                    width: fit-content;
+                    & * {
+                        @include respond(phone) {
+                            font-size: 0.7rem;
+                        }
+                    }
+                    &-left {
+                        background-color: yellow;
+                        border: 0px solid;
+                        font-weight: 700;
+                        color: black;
+                        margin-right: 0.2rem;
+                        padding: 0.1rem 0.4rem;
+                        border-radius: 0.2rem;
+                        font-size: 1.5vmax !important;
+                    }
+                    &-right {
+                        display: flex;
+                        align-items: center;
+                        font-size: 1rem;
+                        & > i {
+                            color: yellow;
+                        }
+                    }
+                }
+                &-watchlist {
+                    @include respond(phone) {
+                        font-size: 0.6rem;
+                    }
+                }
+                &-Metascore {
+                    display: flex;
+                    font-size: 1.2rem !important;
+                    width: fit-content;
+                    // border: 2px solid yellow;
+                    color: white;
+                    border-radius: 0.5rem;
+                    & * {
+                        @include respond(phone) {
+                            font-size: 0.7rem;
+                        }
+                    }
+                    &-left {
+                        background-color: black;
+                        padding: 0.3rem;
+                        border-top-left-radius: 0.5rem;
+                        border-bottom-left-radius: 0.5rem;
+                    }
+
+                    &-right {
+                        padding: 0.3rem;
+                        background-color: yellowgreen;
+                        border-top-right-radius: 0.5rem;
+                        border-bottom-right-radius: 0.5rem;
+                    }
+                }
+                &-rate {
+                    margin-top: 0.5rem;
+                    display: block;
+                    outline: none;
+                }
+            }
+        }
+        &__comments {
+            width: 60%;
+            padding: 0.8rem;
+            &--heading {
+                margin-bottom: 1rem;
+                color: black;
+                font-size: 1.8rem;
+                font-weight: 500;
+                border-left: 5px solid yellow;
+                padding: 0 0.5rem;
+                border-radius: 2px;
+                transition: all 0.5s ease-in-out;
+                &:hover i {
+                    color: yellow;
+                }
+            }
+            &--content {
+                width: 100%;
+                height: fit-content;
+                padding: 0.8rem;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                &-rating {
+                    width: 60%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    & > div {
+                        font-size: 1.3vmax;
+                        font-weight: bold;
+                        transform: skew(-5deg);
+                        padding: 0.1rem 1rem;
+                        border-radius: 0.3rem;
+                        background-color: rgb(255, 221, 0);
+                    }
+                    & i {
+                        color: yellow;
+                    }
+                }
+                &-title {
+                    font-size: 2.2vmax;
+                    font-weight: bold;
+                }
+                &-user {
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    & > div {
+                        font-size: 1.5vmax;
+                        font-weight: 500;
+                        margin-right: 1rem;
+                    }
+                    & > span {
+                        color: gray;
+                    }
+                }
+            }
+        }
+    }
+}
+.bold {
+    font-weight: 500;
+}

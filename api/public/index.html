@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <form>
+      <input type="email" placeholder="Email" />
+      <input type="text" placeholder="Name" />
+      <input type="password" placeholder="password" />
+      <button>Send</button>
+    </form>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      document.querySelector("button").addEventListener("click", async (e) => {
+        e.preventDefault();
+        console.log("clicked");
+        let email = document.querySelector("input[type='email']").value;
+        let name = document.querySelector("input[type='text']").value;
+        let password = document.querySelector("input[type='password']").value;
+        let resp = await axios.post("/auth/signup", { email, name, password });
+        console.log("inside");
+        console.log(resp);
+      });
+    </script>
+  </body>
+</html>

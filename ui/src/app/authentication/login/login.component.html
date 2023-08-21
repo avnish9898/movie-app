@@ -1,0 +1,56 @@
+<div class="login">
+  <div class="login__left">
+    <img src="https://i.pinimg.com/736x/58/3c/9d/583c9d93c0067b7862be68c2a21a80f7.jpg" class="login__left__img"/>
+  </div>
+  <div class="login__right">
+    <div class="alert alert-info" 
+    ="alert" *ngIf="error !== ''">
+      {{ error }}
+    </div>
+    <h5>Login</h5>
+    <form class="login__right-form" (ngSubmit)="onSubmit()" #login="ngForm">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          name="email"
+          ngModel
+          required
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          name="password"
+          ngModel
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="login.invalid"
+        type="submit"
+      >
+        Submit
+      </button>
+      <hr />
+      <button
+        class="btn btn-primary"
+        type="button"
+        [routerLink]="['/auth/signup']"
+      >
+        signup
+      </button>
+    </form>
+  </div>
+</div>

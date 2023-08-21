@@ -1,0 +1,47 @@
+<div class="profile">
+  <div class="profile__container">
+    <div class="profile__container__heading">
+      <h3><i class="fa-solid fa-user"></i> Profile</h3>
+      <button class="btn btn-secondary" (click)="openEdit()">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+    </div>
+    <div class="profile__container__content">
+      <div class="profile__container__content--item">
+        <div class="profile__container__content--item-head">NAME</div>
+        <div class="profile__container__content--item-content">
+          {{ userDetails["name"] }}
+        </div>
+      </div>
+      <div class="profile__container__content--item">
+        <div class="profile__container__content--item-head">EMAIL</div>
+        <div class="profile__container__content--item-content">
+          {{ userDetails["email"] }}
+        </div>
+      </div>
+      <div class="profile__container__content--item">
+        <div class="profile__container__content--item-head">UserID</div>
+        <div class="profile__container__content--item-content">
+          {{ userDetails["userId"] }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="editProfile"
+    (click)="closeEdit()"
+    [ngClass]="{ open: editProfile }"
+  >
+    <div class="editProfile__box" (click)="$event.stopPropagation()">
+      <div class="editProfile__box__heading">Edit Profile</div>
+      <div class="editProfile__box__content">
+        <h5>NAME</h5>
+        <input type="text" [(ngModel)]="name" />
+      </div>
+      <div class="editProfile__box__buttons">
+        <button class="btn btn-primary" (click)="submit()">submit</button>
+        <button class="btn btn-danger" (click)="closeEdit()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

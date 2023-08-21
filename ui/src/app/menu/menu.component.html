@@ -1,0 +1,73 @@
+<div class="menuContainer" [ngClass]="{ 'open-menu': menuStatus }">
+  <div class="menuContainer__heading">
+    <div class="menuContainer__heading__icon">
+      <i class="fa-solid fa-user"></i>
+    </div>
+    <div class="menuContainer__heading__text">
+      <span *ngIf="user" [routerLink]="['/profile']">{{ user["name"] }}</span>
+      <span *ngIf="user == null" [routerLink]="['/login']">Login</span>
+    </div>
+  </div>
+  <div class="menuContainer__content">
+    <div class="menuContainer__content-list" [routerLink]="['/']">
+      <div class="menuContainer__content-list--text">
+        <i class="fa-solid fa-house"></i> <span> Home</span>
+      </div>
+    </div>
+    <div
+      class="menuContainer__content-list"
+      [routerLink]="['/catagorieslist', 'latest']"
+    >
+      <div class="menuContainer__content-list--text">
+        <i class="fa-solid fa-chart-line"></i><span> Latest</span>
+      </div>
+    </div>
+    <div
+      class="menuContainer__content-list"
+      [routerLink]="['/catagorieslist', 'top-rated']"
+    >
+      <div class="menuContainer__content-list--text">
+        <i class="fa-solid fa-star"></i><span> Top Rated</span>
+      </div>
+    </div>
+    <div class="menuContainer__content-list">
+      <div
+        class="menuContainer__content-list--text"
+        [routerLink]="['/type', 'movie']"
+      >
+        <i class="fa-solid fa-clapperboard"></i><span> Movies</span>
+      </div>
+    </div>
+    <div class="menuContainer__content-list" [routerLink]="['/type', 'series']">
+      <div class="menuContainer__content-list--text">
+        <i class="fa-solid fa-tv"></i> <span> Tv Series</span>
+      </div>
+    </div>
+    <div class="menuContainer__content-list">
+      <div
+        class="menuContainer__content-list--text"
+        [routerLink]="['/catagory']"
+      >
+        <i class="fa-solid fa-list"></i>
+        <span> Catagory</span>
+        <button class="btn" (click)="openSubMenu()">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <ul
+        class="menuContainer__content-list--items"
+        [ngClass]="{ subMenu: catagoryStatus }"
+      >
+        <!-- <li [routerLink]="['genre', 'Action']">action</li>
+        <li [routerLink]="['genre', 'Adventure']">adventure</li>
+        <li [routerLink]="['genre', 'Romantic']">romantic</li>
+        <li [routerLink]="['genre', 'Sci-Fi']">Sci-fi</li>
+        <li [routerLink]="['genre', 'Fantasy']">Fantasy</li>
+        <li [routerLink]="['genre', 'Drama']">drama</li>
+        <li [routerLink]="['genre', 'Thriller']">thriller</li>
+        <li [routerLink]="['genre', 'Horror']">horror</li>
+        <li [routerLink]="['genre', 'Comedy']">Comedy</li> -->
+      </ul>
+    </div>
+  </div>
+</div>

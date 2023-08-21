@@ -1,0 +1,56 @@
+<div
+  class="ratingModal"
+  [ngClass]="{ openRatingModal: modal }"
+  (click)="closeModal()"
+>
+  <div class="ratingModal__modal" (click)="$event.stopPropagation()">
+    <button
+      class="ratingModal__modal__close btn btn-danger"
+      (click)="closeModal()"
+    >
+      X
+    </button>
+    <div class="ratingModal__modal__heading">
+      <img
+        class="ratingModal__modal__heading--image"
+        [src]="item['Images'][0]"
+      />
+      <div class="ratingModal__modal__heading--name">
+        <h5>
+          {{ item["Title"] | shortend: 40 }}
+          <span style="color: silver">({{ item["Year"] }})</span>
+        </h5>
+        <div class="">
+          {{ item["Genre"] }}
+        </div>
+        <div>{{ item["Type"] }}</div>
+      </div>
+    </div>
+    <div class="ratingModal__modal__rating">
+      <h5 class="rating-name">Rating</h5>
+      <div class="ratingModal__modal__rating--rate">
+        <button
+          *ngFor="let d of [].constructor(10); let i = index"
+          (click)="changeRating(i + 1)"
+          [ngClass]="{ checked: i >= 0 && i < rate }"
+        >
+          <i class="fa-solid fa-star"></i>
+        </button>
+      </div>
+      <div class="ratingModal__modal__rating--count">{{ rate }}</div>
+    </div>
+
+    <div class="ratingModal__modal__comment">
+      <h3 class="rating-name">Comment</h3>
+      <textarea name="comment" id="" cols="30" rows="8" [(ngModel)]="text">
+      </textarea>
+    </div>
+    <button
+      class="btn btn-primary"
+      [disabled]="rate == 0"
+      (click)="submitReview()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

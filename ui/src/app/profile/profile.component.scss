@@ -1,0 +1,101 @@
+.profile {
+    position: relative;
+    top: 9vh;
+    width: 100vw;
+    height: 91vh;
+    background-color: silver;
+    &__container {
+        min-height: 100%;
+        height: fit-content;
+        min-width: 45vw;
+        width: 35%;
+        background-color: white;
+        margin: auto;
+        padding: 1rem;
+        &__heading {
+            // border-bottom: 2px solid silver;
+            margin-bottom: 1rem;
+            padding: 0 2rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__content {
+            width: 100%;
+            margin: auto;
+            border: 1px solid lightgrey;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            &--item {
+                width: 100%;
+
+                padding: 0.5rem;
+                font-size: 1rem;
+                border-bottom: 1px solid lightgray;
+                &-head {
+                    font-weight: 500;
+                }
+                &-right {
+                    // padding: 0.6rem;
+                    width: 100%;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+.editProfile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    transition: all 0.2s;
+    z-index: -100;
+    opacity: 0;
+    &__box {
+        position: absolute;
+        width: 50vw;
+
+        background-color: white;
+        top: 50%;
+        left: 50%;
+        padding: 1rem;
+        transform: translate(-50%, -50%);
+        transition: all 0.4s;
+        & > * {
+            margin-bottom: 1.5rem;
+        }
+        &__heading {
+            font-size: 2rem;
+            text-align: center;
+            // font-weight: 500;
+        }
+        &__content {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            input {
+                width: 70%;
+                border: 0;
+                border-bottom: 1px solid silver;
+                padding: 0 0.3rem;
+                font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+            }
+        }
+        &__buttons {
+            display: flex;
+            width: 70%;
+            justify-content: space-evenly;
+            margin: auto;
+        }
+    }
+}
+.open {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.261);
+    z-index: 65;
+    opacity: 1;
+}

@@ -1,0 +1,77 @@
+@import "../scss/abstract/mixins";
+* {
+    box-sizing: border-box;
+}
+.type {
+    width: 100vw;
+    min-height: 91vh;
+
+    position: relative;
+    top: 9vh;
+    height: fit-content;
+    background-color: black;
+    padding: 0 10rem;
+    padding-bottom: 0.4rem;
+    @include respond(tab-port) {
+        padding: 0 2rem;
+    }
+    @include respond(phone) {
+        padding: 0 0.5rem;
+    }
+    &__poster {
+        width: 100%;
+        height: 55vh;
+        margin-bottom: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.308);
+        background-blend-mode: color-burn;
+        position: relative;
+        @include respond(phone) {
+            height: 70vw;
+            min-height: 35vh;
+        }
+        &--image {
+            width: 100%;
+            height: 100%;
+        }
+        &--details {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.385);
+            color: white;
+            padding: 1rem;
+            width: 40%;
+            text-align: center;
+            transition: all 0.2s;
+
+            @include respond(phone) {
+                width: 70%;
+            }
+            & * {
+                @include respond(tab-land) {
+                    font-size: 0.9rem;
+                }
+                @include respond(tab-port) {
+                    font-size: 0.7rem;
+                }
+                @include respond(phone) {
+                    font-size: 0.4rem;
+                }
+            }
+            & > h1 {
+                @include respond(phone) {
+                    font-size: 0.6rem;
+                }
+            }
+            &__type {
+                color: lightgoldenrodyellow;
+                font-size: 0.9rem;
+            }
+
+            &__plot {
+                color: lightgrey;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

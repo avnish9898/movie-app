@@ -1,0 +1,17 @@
+<div class="catagories">
+  <div class="catagories__container">
+    <h3>Popular Tv Shows and Movies</h3>
+    <div class="catagories__container_group">
+      <div
+        class="catagories__container_group--catagory"
+        *ngFor="let catagory of catagories"
+        [style.background-image]="'url(' + catagory['image'] + ')'"
+        [routerLink]="['/catagories/catagory', catagory['name'].toLowerCase()]"
+      >
+        <h5 class="catagories__container_group--catagory-title">
+          {{ catagory["name"] }}
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
